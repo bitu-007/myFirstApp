@@ -1,12 +1,87 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Contact } from './contact/contact';
+import { About } from './about/about';
+import { first } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
+
+interface IContact
+{
+  id: number;
+  name: string;
+  email: string;
+}
+  
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, Contact, About,FormsModule],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
 })
+  
 export class App {
-  protected readonly title = signal('myFirstApp');
+  title = 'Hi Everyone';
+  hero = 'superman';
+  srcUrl = "https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png";
+
+  firstsize = "firstsizecss";
+  firstbackcolorcss = "firstbackcolorcss";
+
+  firstCssArr = ["first", "firstsizecss", "firstbackcolorcss"];
+
+  firstCssObj =
+    {
+      first: true,
+      firstsizecss: true,
+      firstbackcolorcss:true
+    }
+  
+  hastrue = true;
+  firstStyle = { "color": "black", "background-color": "yellow" };
+
+  secondStyle = this.hastrue ? "red" : "green";
+
+
+  UserName = "test";
+
+  
+
+  getResult(a:any)
+  {
+    alert(a+" is a value");
+  }
+
+  getEventValue(event:any)
+  {
+    console.log(event);
+  }
+
+
+
+  cars = ['BMW', 'NANO', 'AUDI'];
+  sports = [
+            { id: 1, name: 'cricket' },
+            { id: 2, name: 'hockey' },
+            { id: 3, name: 'kabadi' }
+  ]
+
+  contacts:IContact[]= [
+    {
+    id: 1,
+    name: 'sachin',
+    email: 'sachin@gmail.com',
+    
+  },
+    {
+    id: 2,
+    name: 'virat',
+    email: 'virat@gmail.com'
+    },
+      {
+    id: 3,
+    name: 'dhoni',
+    email: 'dhoni@gmail.com'
+  },
+  ]
 }

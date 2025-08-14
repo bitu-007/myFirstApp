@@ -1,101 +1,139 @@
 <h1>{{ title }}</h1>
-<br>
- 
+<br />
+
 <button (mouseenter)="getResult(10)">click me</button>
 <button (click)="getEventValue($event)">click me</button>
 <input type="text" (change)="getEventValue($event)" value="test" />
 
-
-<br>
+<br />
 <span>Property Binding</span>
-<input type="text" value="{{hero}}" />
- <input type="text" [value]="hero" />  
+<input type="text" value="{{ hero }}" />
+<input type="text" [value]="hero" />
 
 <!-- <img height="100px" src="https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png" alt="not available" /> -->
 <img height="100px" [src]="srcUrl" alt="not available" />
 
-
- <span>Attribute Binding</span>
-<input type="text" [attr.x-name]="hero"/>
-<br>
+<span>Attribute Binding</span>
+<input type="text" [attr.x-name]="hero" />
+<br />
 <span>Class Binding</span>
 
-<p class="first" [class]="firstsize" [class]="firstbackcolorcss">I am free today</p>
+<p class="first" [class]="firstsize" [class]="firstbackcolorcss">
+  I am free today
+</p>
 <p [class]="firstCssArr">great css Arr</p>
 
 <p [class]="firstCssObj">Testing Class Css</p>
 
 <p [style]="firstStyle">Hi Style</p>
 
-<p [style.color]="secondStyle">hello</p>
-
+<p [style.background-color]="secondStyle" [style.font-size]="fontsizeStyle">Hello</p>
 
 <span>Two way binding</span>
 
-<input type="text" [(ngModel)]="UserName" />{{UserName}}
+<input type="text" [(ngModel)]="UserName" />{{ UserName }}
 
+<p style="color: red; background-color: gray">test</p>
 
 <app-contact></app-contact>
 
 <app-about></app-about>
 
-
 @if (hero=="superman"){
 <h1>Superman is going to save</h1>
-} 
-@else if(hero=="heman") {
+} @else if(hero=="heman") {
 <h1>Heman is going to save</h1>
-} 
-@else {
+} @else {
 <h1>No one will save u</h1>
-} 
-@switch (hero) { @case ('superman') {
+} @switch (hero) { @case ('superman') {
 <h1>superman</h1>
-} 
-@case ('heman') {
+} @case ('heman') {
 <h1>heman</h1>
-} 
-@default {
+} @default {
 <h1>others</h1>
+ } 
 } 
-}
 
 @for (car of cars; track car) {
-   <p>{{car}}</p> 
+<p>{{ car }}</p>
 }
 <ul>
-@for (sport of sports; track $index) {
-<li>{{sport.id}}
-{{sport.name}}
-</li>
-}
+  @for (sport of sports; track $index) {
+  <li>
+    {{ sport.id }}
+    {{ sport.name }}
+  </li>
+  }
 </ul>
 
 <table>
-   <thead>
-      <tr>
-         <th>Sno</th>
-         <th>Id</th>
-         <th>Name</th>
-         <th>Email</th>
-         <th>IsFirstRowOrNot</th>
-         <th>IsLastRowOrNot</th>
-         <th>IsEvenOrNot</th>
-         <th>IsOddOrNot</th>
-      </tr>
-   </thead>
-   <tbody>
-      @for (contact of contacts; track contact.id ; let i=$index,first=$first,last=$last,even=$even,odd=$odd) {
-         <tr>
-            <td>{{i+1}}</td>
-            <td>{{contact.id}}</td>
-            <td>{{contact.name}}</td>
-            <td>{{contact.email}}</td>
-            <td>{{first?'yes':'no'}}</td>
-            <td>{{last?'yes':'no'}}</td>
-            <td>{{even?'yes':'no'}}</td>
-            <td>{{odd?'yes':'no'}}</td>
-         </tr>
-      }
-   </tbody>
+  <thead>
+    <tr>
+      <th>Sno</th>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>IsFirstRowOrNot</th>
+      <th>IsLastRowOrNot</th>
+      <th>IsEvenOrNot</th>
+      <th>IsOddOrNot</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (contact of contacts; track contact.id ; let i=$index,first=$first,last=$last,even=$even,odd=$odd) {
+    <tr>
+      <td>{{ i + 1 }}</td>
+      <td>{{ contact.id }}</td>
+      <td>{{ contact.name }}</td>
+      <td>{{ contact.email }}</td>
+      <td>{{ first ? "yes" : "no" }}</td>
+      <td>{{ last ? "yes" : "no" }}</td>
+      <td>{{ even ? "yes" : "no" }}</td>
+      <td>{{ odd ? "yes" : "no" }}</td>
+    </tr>
+    }
+  </tbody>
+
+  <br>
+  <br>
+  <span>Directive</span>
+
+  <p *ngIf="isCarAvailable then ifblock ;else elseblock"></p>
+
+  <ng-template #ifblock>
+   <h1>Audi is available</h1>
+  </ng-template>
+
+  <ng-template #elseblock>
+  <h1>Nano is available</h1>
+  </ng-template>
+
+
+<!-- Switch Variable:- -->
+
+  <div [ngSwitch]="SwitchVar">
+   <div *ngSwitchCase="'I'">Iron Man Movie</div>
+   <div *ngSwitchCase="'T'">Thor Movie</div>
+   <div *ngSwitchCase="'S'">Spider Man Movie</div>
+   <div *ngSwitchDefault="">Shaktiman Movie</div>
+  </div>
+
+
+  <div *ngFor="let car of cars;">
+  <ul>
+   <li>{{car}}</li>
+  </ul>
+  </div>
+
+  <br>
+
+  <!-- <div *ngFor="let sport of sports; track sport.id ; let i=$first">
+  <ul>
+   <li>{{sport.id}}</li>
+   <li>{{sport.name}}</li>
+   <li>{{i}}</li>
+
+  </ul>
+  </div> -->
+
 </table>

@@ -4,6 +4,7 @@ import { Contact } from './contact/contact';
 import { About } from './about/about';
 import { first } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 interface IContact
@@ -15,7 +16,7 @@ interface IContact
   
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Contact, About,FormsModule],
+  imports: [RouterOutlet, Contact, About,FormsModule,CommonModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
@@ -41,9 +42,11 @@ export class App {
   firstStyle = { "color": "black", "background-color": "yellow" };
 
   secondStyle = this.hastrue ? "red" : "green";
+  fontsizeStyle = "20px";
+  
 
 
-  UserName = "test";
+  UserName = "Bitu";
 
   
 
@@ -84,4 +87,9 @@ export class App {
     email: 'dhoni@gmail.com'
   },
   ]
+
+
+  isCarAvailable = true;
+
+  SwitchVar = "K";
 }

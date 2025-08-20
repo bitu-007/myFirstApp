@@ -125,15 +125,23 @@
   </ul>
   </div>
 
-  <!-- <br>
+  <br>
 
-  <div *ngFor="let sport of sports; track sport.id ; let i=$first">
+  <div *ngFor="let sport of sports;">
   <ul>
    <li>{{sport.id}}</li>
    <li>{{sport.name}}</li>
-   <li>{{i}}</li>
 
   </ul>
-  </div> -->
+  </div>
 
 </table>
+
+
+<input type="text" #inputval /> <br>
+<button (click)="fun(inputval.value)">Send Template Value</button>
+
+<h3>About Component is Called</h3>
+<app-about [parentdata]="hero" (childdata)="fun($event)"></app-about>
+
+

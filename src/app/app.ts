@@ -16,14 +16,14 @@ interface IContact
   
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Contact, About,FormsModule,CommonModule],
+  imports: [RouterOutlet, Contact,FormsModule,CommonModule,About],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
   
 export class App {
   title = 'Hi Everyone';
-  hero = 'superman';
+  hero = 'shaktiman';
   srcUrl = "https://www.searchenginejournal.com/wp-content/uploads/2019/04/the-seo-guide-to-angular.png";
 
   firstsize = "firstsizecss";
@@ -92,4 +92,10 @@ export class App {
   isCarAvailable = true;
 
   SwitchVar = "K";
+
+
+  fun(value: any)
+  {
+    alert(value);
+  }
 }

@@ -1,13 +1,13 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-
+import { AppDeactivateGuardService, IDeactivate } from '../app-deactivate-guard-service';
 @Component({
   selector: 'app-about',
   imports: [],
   templateUrl: './about.html',
   styleUrl: './about.css',
 })
-export class About implements OnInit {
+export class About implements OnInit,IDeactivate {
   FirstName = 'Bitu Kumar';
 
   @Input() parentdata: string = '';
@@ -23,6 +23,16 @@ export class About implements OnInit {
   {
 
   }
+
+  canExit(): boolean{
+    if (confirm("Are you sure you want to exit")) {
+      return true;
+    }
+    
+      return false;
+    
+  }
+
   ngOnInit(): void {
     // this.user = {
     //   id: this.router.snapshot.params['id'],

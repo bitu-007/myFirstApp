@@ -4,6 +4,7 @@ import { App } from '../app';
 import { About } from '../about/about';
 import { Contact } from '../contact/contact';
 
+
 @Component({
   selector: 'app-layout',
   imports: [RouterOutlet,RouterLink,RouterLinkActive,App,About,Contact],

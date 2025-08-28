@@ -1,0 +1,57 @@
+
+<form #stdForm="ngForm">
+    <div class="container">
+  
+  <div class="col-md-6">
+    <label for="firstname" class="form-label">Firstname</label>
+    <input type="text" #fname="ngModel" class="form-control" name="firstname" [(ngModel)]="studentObj.firstname" required minlength="3">
+    <div class="text-danger">
+        @if(fname.errors?.['required'] && fname.touched){
+            required
+        }
+        @if(fname.errors?.['minlength'] && fname.touched){
+            min 3 character are allowed
+        }
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="lastname" class="form-label">Lastname</label>
+    <input type="text" class="form-control" name="lastname" [(ngModel)]="studentObj.lastname">
+  </div>
+  <div class="col-12">
+    <label for="username" class="form-label">Username</label>
+    <input type="text" class="form-control" name="username" [(ngModel)]="studentObj.username">
+  </div>
+  <div class="col-12">
+    <label for="inputCity" class="form-label">City</label>
+    <input type="text" class="form-control" name="city" [(ngModel)]="studentObj.city">
+  </div>
+   
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">State</label>
+    <select name="state" class="form-select" [(ngModel)]="studentObj.state">
+      <option selected>Choose...</option>
+
+      <option *ngFor="let state of Indiastates" value="{{state.id}}">{{state.name}}</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="inputZip" class="form-label">Zip</label>
+    <input type="text" class="form-control" name="zipcode" [(ngModel)]="studentObj.zipcode">
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="isAgreed" [(ngModel)]="studentObj.isAgreed">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit Form</button>
+  </div>
+  </div>
+</form>
+
+
+{{stdForm.value |json}}

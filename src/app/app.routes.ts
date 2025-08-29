@@ -5,6 +5,7 @@ import { Contact } from './contact/contact';
 import { Appguard } from './appguard';
 import { AppDeactivateGuardService } from './app-deactivate-guard-service';
 import { Simpletemplateform } from './simpletemplateform/simpletemplateform';
+import { ReactiveFormEx } from './reactive-form-ex/reactive-form-ex';
 
 export const routes: Routes = [
   { path: '', component: App },
@@ -23,5 +24,7 @@ export const routes: Routes = [
       },
     ],
   },
-  { path:"simpletemplateform", component:Simpletemplateform }
+  { path: "simpletemplateform", component: Simpletemplateform },
+  { path:"reactiveform", component:ReactiveFormEx }
+  
 ];

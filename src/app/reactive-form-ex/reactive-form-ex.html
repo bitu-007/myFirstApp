@@ -1,0 +1,51 @@
+<p>reactive-form-ex works!</p>
+
+<div class="container">
+    <form class="row g-3" [formGroup]="StudentForm">
+  <div class="col-md-6">
+    <label for="firstname" class="form-label">FirstName</label>
+    <input type="text" class="form-control" name="firstname" formControlName="firstname">
+    <div class="text-danger">
+        @if(StudentForm.controls['firstname'].errors?.['required'] &&
+        StudentForm.controls['firstname'].touched
+        ){
+        Requieed !
+        }
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="lastname" class="form-label">LastName</label>
+    <input type="text" class="form-control" name="lastname" formControlName="lastname">
+  </div>
+  <div class="col-12">
+    <label for="username" class="form-label">UserName</label>
+        <input type="text" class="form-control" name="username" formControlName="username">
+  </div>
+  <div class="col-12">
+    <label for="city" class="form-label">City</label>
+    <input type="text" class="form-control" name="city" formControlName="city">
+  </div>
+  <div class="col-md-4">
+    <label for="state" class="form-label">State</label>
+    <select name="state" class="form-select" formControlName="state">
+      <option selected>Choose...</option>
+      <option *ngFor="let state of Indiastates" value="{{state.id}}">{{state.name}}</option>
+    </select>
+  </div>
+  <div class="col-md-2">
+    <label for="zipcode" class="form-label">Zip</label>
+    <input type="text" class="form-control" name="zipcode" formControlName="zipcode">
+  </div>
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" name="isAgreed" formControlName="isAgreed">
+      <label class="form-check-label" for="gridCheck">
+        Check me out
+      </label>
+    </div>
+  </div>
+  <div class="col-12">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Sign in</button>
+  </div>
+</form>
+</div>

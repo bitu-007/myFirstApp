@@ -1,0 +1,10 @@
+<p>dynamicform works!</p>
+
+<form [formGroup]="form">
+    <div *ngFor="let control of formConfig">
+        <label>{{control.label}}</label>
+<ng-container [ngSwitch]="control.type" >
+<input *ngSwitchCase="'text'"[type]="control.type" [formControlName]="control.name">
+</ng-container>
+    </div>
+</form>

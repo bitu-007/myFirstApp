@@ -7,6 +7,8 @@ import { AppDeactivateGuardService } from './app-deactivate-guard-service';
 import { Simpletemplateform } from './simpletemplateform/simpletemplateform';
 import { ReactiveFormEx } from './reactive-form-ex/reactive-form-ex';
 import { Dynamicform } from './dynamicform/dynamicform';
+import { Formbuilderexample } from './formbuilderexample/formbuilderexample';
+import { Pipeexample } from './pipeexample/pipeexample';
 
 export const routes: Routes = [
   { path: '', component: App },
@@ -27,7 +29,11 @@ export const routes: Routes = [
   },
   { path: "simpletemplateform", component: Simpletemplateform },
   { path: "reactiveform", component: ReactiveFormEx },
-  { path:"dynamicform", component:Dynamicform }
+  { path: "dynamicform", component: Dynamicform }, //app-formbuilderexample
+  { path: "formbuilder", component: Formbuilderexample },
+  { path:"pipeexample", component:Pipeexample }
+  
+  
   
   
 ];
